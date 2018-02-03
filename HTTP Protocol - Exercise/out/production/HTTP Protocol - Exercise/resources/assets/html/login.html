@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container body-content span=8 offset=2">
+    <div class="well">
+        <form class="form-horizontal" action="/login" method="post">
+            <fieldset>
+                <legend class="col-sm-offset-5">Login Here</legend>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="user_email">Email</label>
+                    <div class="col-sm-4">
+                        <input type="email" class="form-control" id="user_email" placeholder="Email" name="email"
+                               maxlength="30"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="password">Password</label>
+                    <div class="col-sm-4">
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+                               maxlength="60"/>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-sm-offset-5">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</body>
+</html>

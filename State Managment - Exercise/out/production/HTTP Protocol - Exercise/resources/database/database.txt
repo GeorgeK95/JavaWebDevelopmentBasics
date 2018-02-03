@@ -1,0 +1,5 @@
+bcce6f28-cb07-409e-8b3c-6a89ebe4cc0e|c@c.bg|c
+b428f2db-c4ab-4e0a-9883-8c4fb3cb35b8|a@a.bg|a
+9eb6e3a9-95ae-466d-9af2-a86d53211f51|b@b.com|b
+cba73bc7-b2af-4942-bbc8-c31a58147b3d|d@abv.bg|d
+357233cc-6beb-4b7a-a9b3-56563b2f381e|e@e.bg|e
