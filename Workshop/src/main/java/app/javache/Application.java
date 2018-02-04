@@ -3,7 +3,7 @@ package main.java.app.javache;
 import main.java.app.database.repositories.DbRepository;
 import main.java.app.javache.enums.RequestMethod;
 import main.java.app.javache.http.contracts.IHttpContext;
-import main.java.app.javache.test.contracts.IHttpSessionStorage;
+import main.java.app.javache.http.contracts.IHttpSessionStorage;
 
 import java.util.Map;
 import java.util.function.Function;
@@ -21,4 +21,7 @@ public interface Application {
     void setSession(IHttpSessionStorage session);
 
     byte[] handleRequest(IHttpContext httpContext);
+
+    void establishResources();
+
 }

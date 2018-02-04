@@ -1,9 +1,9 @@
 package main.java.app.javache.http;
 
+import main.java.app.javache.enums.HeaderPriority;
 import main.java.app.javache.http.contracts.IHttpResponse;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 import static main.java.app.javache.utils.ServerConstants.*;
 
@@ -11,17 +11,17 @@ import static main.java.app.javache.utils.ServerConstants.*;
  * Created by George-Lenovo on 6/29/2017.
  */
 public class HttpResponse implements IHttpResponse {
-    private Map<String, String> headers;
+    private Map<Integer, Map<String, String>> headers;
     private int statusCode;
     private byte[] content;
 
     public HttpResponse() {
-        this.headers = new LinkedHashMap<>();
+        this.headers = new TreeMap<>();
     }
 
     @Override
     public Map<String, String> getHeaders() {
-        return this.headers;
+        return this.getHeadersNastedValues();
     }
 
     @Override
@@ -37,11 +37,20 @@ public class HttpResponse implements IHttpResponse {
     @Override
     public byte[] getBytes() {
         StringBuilder headersBuilder = new StringBuilder();
-        for (String currentHeader : this.headers.values()) {
+        Collection<String> toBeRemoved = this.getHeadersNastedValues().values();
+        for (String currentHeader : toBeRemoved) {
             headersBuilder.append(currentHeader).append(System.lineSeparator());
         }
         headersBuilder.append(System.lineSeparator());
         return this.constructFinalByteArray(headersBuilder);
+    }
+
+    private Map<String, String> getHeadersNastedValues() {
+        Map<String, String> temp = new LinkedHashMap<>();
+        for (Map<String, String> currentHeaderMap : this.headers.values()) {
+            temp.putAll(currentHeaderMap);
+        }
+        return temp;
     }
 
     @Override
@@ -55,19 +64,32 @@ public class HttpResponse implements IHttpResponse {
     }
 
     @Override
-    public void addHeader(String header, String value) {
-        this.headers.put(header, value);
+    public void addHeader(HeaderPriority priority, String header, String value) {
+        if (!this.headers.containsKey(priority.getPriority())) {
+            this.headers.put(priority.getPriority(), new LinkedHashMap<>());
+        }
+        this.headers.get(priority.getPriority()).put(header, value);
     }
 
     @Override
     public void addSession(String cookie, String value) {
+        this.addSession(HeaderPriority.LOW, cookie, value);
+    }
+
+    private void addSession(HeaderPriority priority, String cookie, String value) {
         String pathString = "; path=/";
         String fullCookieString = cookie + EQUAL_SPLITTER + value + pathString;
-        if (!this.headers.containsKey(SET_COOKIE)) {
-            this.headers.put(SET_COOKIE, SET_COOKIE.concat(fullCookieString));
-        } else {
-            this.headers.put(SET_COOKIE, this.headers.get(SET_COOKIE).concat(SEMICOLON_SPLITTER).concat(fullCookieString));
+        String concat;
+        if (!this.headers.containsKey(priority.getPriority())) {
+            this.headers.put(priority.getPriority(), new LinkedHashMap<>());
         }
+        if (!this.headers.get(priority.getPriority()).containsKey(SET_COOKIE)) {
+            concat = SET_COOKIE.concat(fullCookieString);
+        } else {
+            concat = this.headers.get(priority.getPriority()).get(SET_COOKIE).concat(SEMICOLON_SPLITTER)
+                    .concat(fullCookieString);
+        }
+        this.headers.get(priority.getPriority()).put(SET_COOKIE, concat);
     }
 
     private byte[] constructFinalByteArray(StringBuilder headersBuilder) {

@@ -19,4 +19,6 @@ public interface IUserRepository<User> extends DbRepository<User> {
     User findByEmail(String user);
 
     Object invokeMethod(String method, Object... params);
+    void establishResources();
+
 }

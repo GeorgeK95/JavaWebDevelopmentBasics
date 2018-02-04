@@ -1,13 +1,16 @@
 package main.java.app.javache.http.factories;
 
-import main.java.app.javache.test.HttpSessionStorage;
-import main.java.app.javache.test.contracts.IHttpSessionStorage;
+import main.java.app.javache.http.HttpSession;
+import main.java.app.javache.http.contracts.IHttpSession;
 
 /**
  * Created by George-Lenovo on 6/29/2017.
  */
-public class HttpSessionFactory {
-    public static IHttpSessionStorage create() {
-        return new HttpSessionStorage();
+public final class HttpSessionFactory {
+    public static IHttpSession create() {
+        return new HttpSession();
+    }
+
+    private HttpSessionFactory() {
     }
 }

@@ -1,6 +1,6 @@
 package main.java.app.javache.http.contracts;
 
-import main.java.app.javache.test.contracts.IHttpCookie;
+import main.java.app.javache.enums.HeaderPriority;
 
 import java.util.Map;
 
@@ -20,7 +20,7 @@ public interface IHttpResponse {
 
     void setContent(byte[] content);
 
-    void addHeader(String header, String value);
+    void addHeader(HeaderPriority priority,String header, String value);
 
     void addSession(String cookie, String value);
 

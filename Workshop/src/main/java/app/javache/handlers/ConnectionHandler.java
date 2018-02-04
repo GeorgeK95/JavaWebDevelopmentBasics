@@ -4,7 +4,6 @@ package main.java.app.javache.handlers;
 import main.java.app.javache.handlers.contracts.IConnectionHandler;
 import main.java.app.javache.io.InputStreamReader;
 import main.java.app.javache.io.OutputStreamWriter;
-import main.java.app.javache.io.contracts.StreamWriter;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -17,8 +16,6 @@ import java.net.Socket;
 public class ConnectionHandler extends Thread implements IConnectionHandler {
     private RequestHandler requestHandler;
     private Socket clientSocket;
-
-    private StreamWriter writer;
 
     private InputStream requestStream;
     private DataOutputStream responseStream;
@@ -34,7 +31,6 @@ public class ConnectionHandler extends Thread implements IConnectionHandler {
             this.clientSocket = clientSocket;
             this.requestStream = this.clientSocket.getInputStream();
             this.responseStream = new DataOutputStream(this.clientSocket.getOutputStream());
-            this.writer = new OutputStreamWriter();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -45,7 +41,7 @@ public class ConnectionHandler extends Thread implements IConnectionHandler {
         try {
             String requestContent = InputStreamReader.readClientInputStream(this.requestStream);
             byte[] handledRequest = this.requestHandler.handleRequest(requestContent);
-            this.writer.writeOutputStream(handledRequest, this.responseStream);
+            OutputStreamWriter.writeOutputStream(handledRequest, this.responseStream);
             this.closeSockets();
         } catch (IOException e) {
             e.printStackTrace();

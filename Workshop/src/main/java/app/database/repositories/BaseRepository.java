@@ -54,8 +54,14 @@ public abstract class BaseRepository implements IUserRepository<User> {
     }
 
     @Override
+    public void establishResources() {
+
+    }
+
+    @Override
     public void dismiss() {
         this.entityManager.close();
         ENTITY_MANAGER_FACTORY.close();
     }
+
 }

@@ -17,4 +17,5 @@ public interface DbRepository<T> {
     boolean exists(String columnCriteria);
 
     void dismiss();
+
 }
