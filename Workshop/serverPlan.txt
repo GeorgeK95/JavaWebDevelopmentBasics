@@ -1,0 +1,13 @@
+v /users/profile-list s friends
+v /home- takiva za dobavqne
+i finally add friend functionality
+
+db i server shte si imat neshto ot sorta na "InjectDependenciesProvider"/"DependenciesInjector",
+koito class pri purvonachalnata inicializaciq shte pretursva applicationa
+za suotvetnata anotaciq i ako q nameri, shte injectva
+
+ Class<? extends Handler> handlerClass = (Class<? extends Handler>) Class.forName(className);
+                Handler handler = (Handler) handlerClass.getConstructors()[0].newInstance();
+                this.injectDependencies(handlerClass, handler);
+				da ne go pravi postoqnno, a kato se vdiga appa samo nqkak si nali
+				
