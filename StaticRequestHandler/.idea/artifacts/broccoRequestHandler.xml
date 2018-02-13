@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="broccoRequestHandler">
+    <output-path>$PROJECT_DIR$/out/artifacts/broccoRequestHandler</output-path>
+    <root id="archive" name="broccoRequestHandler.jar">
+      <element id="directory" name="org">
+        <element id="directory" name="galaxi">
+          <element id="directory" name="handlers">
+            <element id="file-copy" path="$PROJECT_DIR$/out/production/StaticRequestHandler/org/galaxi/handlers/BroccoRequestHandler.class" />
+          </element>
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

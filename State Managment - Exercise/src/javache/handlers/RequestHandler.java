@@ -222,11 +222,6 @@ public class RequestHandler {
         this.seedCommonDataToResponse();
     }
 
-    private void unauthorized() {
-        this.response.setStatusCode(Response.RESPONSE_UNAUTHORIZED.getCode());
-        this.response.addHeader(Response.RESPONSE_UNAUTHORIZED.getKey(), Response.RESPONSE_UNAUTHORIZED.getValue());
-    }
-
     private void ok() {
         this.response.setStatusCode(Response.RESPONSE_OK.getCode());
         this.response.addHeader(Response.RESPONSE_OK.getKey(), Response.RESPONSE_OK.getValue());
@@ -237,6 +232,11 @@ public class RequestHandler {
         this.response.addHeader(WebConstants.SERVER_STRING, SERVER_HEADER_NAME_AND_VERSION);
         this.response.addHeader(INLINE_STRING, this.contentTypeLines.get(INLINE_STRING));
         this.response.addHeader(DATE, this.contentTypeLines.get(DATE));
+    }
+
+    private void unauthorized() {
+        this.response.setStatusCode(Response.RESPONSE_UNAUTHORIZED.getCode());
+        this.response.addHeader(Response.RESPONSE_UNAUTHORIZED.getKey(), Response.RESPONSE_UNAUTHORIZED.getValue());
     }
 
     private void setResponseContent(String url, byte[] readPageContent) {

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="toyoteResourceHandler">
+    <output-path>$PROJECT_DIR$/out/artifacts/toyoteResourceHandler</output-path>
+    <root id="archive" name="toyoteResourceHandler.jar">
+      <element id="directory" name="org">
+        <element id="directory" name="galaxi">
+          <element id="directory" name="handlers">
+            <element id="file-copy" path="$PROJECT_DIR$/out/production/DynamicResourceHandler/org/galaxi/handlers/ToyoteResourceHandler.class" />
+          </element>
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
