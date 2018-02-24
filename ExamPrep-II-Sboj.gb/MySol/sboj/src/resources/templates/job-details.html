@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+$(HEAD)
+<body>
+<div class="container-fluid">
+    $(LOGGED_NAVIGATION)
+    <hr class="my-2"/>
+    <div class="text-center mb-4">
+        <h1>Job Details</h1>
+    </div>
+    <hr class="my-2">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="label mt-2">
+                    <h2 class="text-center">Sector</h2>
+                    <h4 class="text-center">$(sector)</h4>
+                </div>
+                <div class="label mt-4">
+                    <h2 class="text-center">Profession</h2>
+                    <h4 class="text-center">$(profession)</h4>
+                </div>
+                <div class="label mt-4">
+                    <h2 class="text-center">Salary</h2>
+                    <h4 class="text-center">$$(salary)</h4>
+                </div>
+                <div class="label mt-4">
+                    <h2 class="text-center">Description</h2>
+                    <p class="text-center">$(description)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="my-3"/>
+    $(FOOTER)
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+$(HEAD)
+<body>
+<div class="container-fluid">
+    $(LOGGED_NAVIGATION)
+    <hr class="my-2"/>
+    <div class="text-center mb-4">
+        <h1>Add Job</h1>
+    </div>
+    <hr class="my-2">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="form-holder text-center">
+                <form class="form-inline" action="/jobs/delete/$(id)" method="POST">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="sector">Sector</label>
+                            <div class="controls">
+                                <input type="text" id="sector" name="sector" placeholder="$(sector)" class="input-xlarge"
+                                       disabled="disabled">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="profession">Profession</label>
+                            <div class="controls">
+                                <input type="text" id="profession" name="profession" placeholder="$(profession)" class="input-xlarge"
+                                       disabled="disabled">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="salary">Salary</label>
+                            <div class="controls">
+                                <input type="number" id="salary" name="salary" placeholder="$(salary)"
+                                       class="input-xlarge"
+                                       disabled="disabled">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="description">Description</label>
+                            <div class="controls">
+                                <input type="text" id="description" name="description" placeholder="$(description)"
+                                       class="input-xlarge"
+                                       disabled="disabled">
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button class="btn btn-danger">Delete Job</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr class="my-3"/>
+    $(FOOTER)
+</div>
+</body>
+</html>
