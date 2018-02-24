@@ -92,6 +92,8 @@ public final class ActionInvoker {
                         .findFirst()
                         .orElse(null);
 
+        String result = null;
+
         if (bindingModelParameter != null) {
             Object bindingModelInstance =
                     bindingModelParameter
@@ -131,7 +133,7 @@ public final class ActionInvoker {
             Object[] actionArguments =
                     this.getActionArguments(cap, templateModel, request, response, bindingModelInstance);
 
-            return cap
+            result = cap
                     .getAction()
                     .invoke(cap.getController(), actionArguments)
                     .toString();
@@ -139,18 +141,13 @@ public final class ActionInvoker {
             Object[] actionArguments =
                     this.getActionArguments(cap, templateModel, request, response, null);
 
-            //TODO
-            System.out.println(cap.getAction());
-            System.out.println(cap.getController());
-            for (Object actionArgument : actionArguments) {
-                System.out.println(actionArgument);
-            }
-            //TODO
-
-            return cap
+            result = cap
                     .getAction()
                     .invoke(cap.getController(), actionArguments)
                     .toString();
         }
+
+        cap.clearParameters();
+        return result;
     }
 }

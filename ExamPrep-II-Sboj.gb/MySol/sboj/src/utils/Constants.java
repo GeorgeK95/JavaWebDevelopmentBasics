@@ -36,6 +36,13 @@ public final class Constants {
     public static final String SALARY = "salary";
     public static final String DESCRIPTION = "description";
     public static final String JOB_APPLICATIONS = "jobApplications";
+    public static final String ERROR = "error";
+    public static final String DISPLAY = "display";
+    public static final String TYPE = "type";
+    public static final String DANGER = "danger";
+    public static final String INCORRECT_USERNAME_OR_PASSWORD_MESSAGE = "Incorrect username or password.";
+    public static final String STYLE_DISPLAY_BLOCK = "style=\"display: block\"";
+    public static final String STYLE_DISPLAY_NONE = "style=\"display: none\"";
 
     //fragments
     public static final String LOGGED_NAVIGATION_STRING = "LOGGED_NAVIGATION";

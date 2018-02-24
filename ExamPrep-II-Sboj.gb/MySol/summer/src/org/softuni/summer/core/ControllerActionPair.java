@@ -33,4 +33,8 @@ public class ControllerActionPair {
     public void addParameter(Object parameter) {
         this.actionParameters.add(parameter);
     }
+
+    public void clearParameters() {
+        this.actionParameters.clear();
+    }
 }

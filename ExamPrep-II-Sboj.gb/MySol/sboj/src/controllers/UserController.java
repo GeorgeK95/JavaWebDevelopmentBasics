@@ -19,7 +19,6 @@ import static utils.Constants.*;
 @Controller
 public class UserController {
 
-
     private UserRepository userRepository;
 
     public UserController() {
@@ -59,6 +58,7 @@ public class UserController {
     public String login(HttpSoletRequest request, Model model) {
         model.addAttribute(HEAD_STRING, Constants.HEAD);
         model.addAttribute(FOOTER_STRING, Constants.FOOTER);
+        model.addAttribute(DISPLAY, STYLE_DISPLAY_NONE);
         model.addAttribute(GUEST_NAVIGATION_STRING, Constants.GUEST_NAVIGATION);
         return TEMPLATE_LOGIN;
     }
@@ -68,10 +68,14 @@ public class UserController {
     public String loginProcess(HttpSoletRequest request, UserLoginBindingModel userLoginBindingModel, Model model) {
         model.addAttribute(HEAD_STRING, Constants.HEAD);
         model.addAttribute(FOOTER_STRING, Constants.FOOTER);
-        User user = (User) this.userRepository.findByName(userLoginBindingModel.getUsername());
+        model.addAttribute(GUEST_NAVIGATION_STRING, Constants.GUEST_NAVIGATION);
 
+        User user = (User) this.userRepository.findByName(userLoginBindingModel.getUsername());
         if (user == null || !user.getPassword().equals(userLoginBindingModel.getPassword())) {
-            return REDIRECT_LOGIN;
+            model.addAttribute(ERROR, INCORRECT_USERNAME_OR_PASSWORD_MESSAGE);
+            model.addAttribute(DISPLAY, STYLE_DISPLAY_BLOCK);
+            model.addAttribute(TYPE, DANGER);
+            return TEMPLATE_LOGIN;
         }
 
         request.getSession().addAttribute(USER_ID, user.getId());
