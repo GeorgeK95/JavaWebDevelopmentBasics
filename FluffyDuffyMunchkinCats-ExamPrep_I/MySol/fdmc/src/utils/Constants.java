@@ -30,7 +30,7 @@ public final class Constants {
     public static final String USER_ID = "user-id";
     public static final String USERNAME = "username";
 
-    //
+    //fragments
     public static final String LOGGED_NAVIGATION_STRING = "LOGGED_NAVIGATION";
     public static final String GUEST_NAVIGATION_STRING = "GUEST_NAVIGATION";
     public static final String HEAD_STRING = "HEAD";
