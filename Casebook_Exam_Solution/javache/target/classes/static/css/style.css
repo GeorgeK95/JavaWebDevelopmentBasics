@@ -1,0 +1,24 @@
+.bg-color-dark {
+    background-color: #F08080;
+}
+
+.footer {
+    background-color: #F08080;
+}
+
+tr.spaceUnder > td {
+    /*padding-bottom: 5em;*/
+    padding: 5px 10px 5px 5px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+table.friendsTable {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#friendsTableDiv {
+    margin-bottom: 50px;
+    margin-top: 50px
+}

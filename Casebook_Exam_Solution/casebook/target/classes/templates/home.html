@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+$(HEAD)
+
+<body>
+<div class="container-fluid">
+
+    $(LOGGED_NAVIGATION)
+
+    <hr class="my-2"/>
+    <div class="text-center mb-3">
+        <a href="/profile/$(currentUserId)">
+            <h4 class="text-info">
+                Welcome, $(username)
+            </h4>
+        </a>
+    </div>
+    <hr class="my-2">
+    <div class="container">
+        $(allUsers)
+    </div>
+    <hr class="my-3"/>
+
+    $(FOOTER)
+</div>
+</body>
+</html>
