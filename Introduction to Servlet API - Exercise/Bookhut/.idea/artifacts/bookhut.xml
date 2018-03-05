@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="bookhut">
+    <output-path>$PROJECT_DIR$/out/artifacts/bookhut</output-path>
+    <root id="archive" name="bookhut.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Bookhut" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="Bookhut/web/Web" />
+    </root>
+  </artifact>
+</component>
